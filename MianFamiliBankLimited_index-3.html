@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MianFamili Bank Limited — Demo</title>
+  <style>
+    :root{
+      --bg1: #f6fbff;
+      --accent1: #0b6efd;
+      --accent2: #7c3aed;
+      --muted: #6b7280;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.6);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;background:linear-gradient(180deg,var(--bg1),white);color:#0b1220}
+    .container{max-width:1100px;margin:0 auto;padding:28px}
+    header{position:sticky;top:0;background:rgba(255,255,255,0.7);backdrop-filter:blur(6px);box-shadow:0 6px 18px rgba(12,17,25,0.04);z-index:40}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo-wrap{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;box-shadow:0 8px 30px rgba(11,17,32,0.08)}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    nav a{color:inherit;text-decoration:none;font-weight:700;opacity:0.85}
+    .actions{display:flex;gap:10px;align-items:center}
+    .btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
+    .btn-primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white}
+    .btn-ghost{background:transparent;border:1px solid rgba(11,17,32,0.06)}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:36px 0}
+    .tag{display:inline-block;padding:6px 12px;border-radius:999px;background:linear-gradient(90deg,#e6f0ff,#f0eaff);color:var(--accent1);font-weight:800;margin-bottom:12px}
+    h1{font-size:34px;margin:0;line-height:1.02}
+    .muted{color:var(--muted)}
+    .card{background:var(--card);padding:20px;border-radius:16px;box-shadow:0 20px 50px rgba(11,17,32,0.06);border:1px solid rgba(11,17,32,0.03)}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+    .service{padding:18px;border-radius:12px;background:linear-gradient(180deg,#fff,#fbfdff);box-shadow:0 10px 30px rgba(11,17,32,0.04)}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+    footer{margin-top:36px;padding:30px 0;background:transparent}
+    input,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid #e6eaef;font-size:14px}
+    .login-btn{padding:12px;border-radius:10px;border:0;cursor:pointer;font-weight:800}
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .services{grid-template-columns:repeat(2,1fr)}
+      .two-col{grid-template-columns:1fr}
+      nav ul{display:none}
+    }
+    @media (max-width:560px){
+      .services{grid-template-columns:1fr}
+      .logo-wrap{width:48px;height:48px}
+      h1{font-size:26px}
+    }
+    .stat{background:white;padding:12px;border-radius:12px;box-shadow:0 8px 22px rgba(12,17,25,0.04);min-width:110px;text-align:center}
+    .footer-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+    a.link{color:var(--accent1);text-decoration:none;font-weight:800}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo-wrap" aria-hidden="true">
+          <!-- simple bank logo SVG -->
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="7" width="18" height="2" rx="1" fill="white"/>
+            <path d="M4 19h16a1 1 0 0 0 1-1V10L12 4 3 10v8a1 1 0 0 0 1 1z" fill="white"/>
+            <circle cx="8.5" cy="14.8" r="1.6" fill="white"/>
+            <circle cx="15.5" cy="14.8" r="1.6" fill="white"/>
+          </svg>
+        </div>
+        <div>
+          <div style="font-weight:800">MianFamili</div>
+          <div class="muted" style="font-size:12px">Bank Limited</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="actions">
+        <button class="btn btn-ghost" id="openLogin">Customer Login</button>
+        <button class="btn btn-primary" id="openAccount">Open Account</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="home">
+    <section class="hero">
+      <div>
+        <span class="tag">Trusted · Local · Secure</span>
+        <h1>Welcome to <strong style="display:inline-block; background:linear-gradient(90deg,var(--accent1),var(--accent2)); -webkit-background-clip:text; color:transparent;">MianFamili Bank Limited</strong></h1>
+        <p class="muted">Modern banking with a local touch. Accounts, loans, online banking, investments — built for people and businesses.</p>
+        <div style="margin-top:18px;display:flex;gap:12px;">
+          <button class="btn btn-primary" onclick="alert('Get Started — demo')">Get Started</button>
+          <button class="btn btn-ghost" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Learn More</button>
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:20px;">
+          <div class="stat"><div class="muted" style="font-size:12px">Customers</div><div style="font-weight:800">120k+</div></div>
+          <div class="stat"><div class="muted" style="font-size:12px">Branches</div><div style="font-weight:800">28</div></div>
+          <div class="stat"><div class="muted" style="font-size:12px">Secure</div><div style="font-weight:800">24/7</div></div>
+        </div>
+      </div>
+
+      <aside class="card" aria-labelledby="login-heading">
+        <h3 id="login-heading" style="margin-top:0">Online Banking</h3>
+        <p class="muted" style="margin-bottom:12px">Sign in to access accounts, transfer funds, and pay bills.</p>
+        <input id="loginUser" placeholder="CNIC / Email / Mobile" />
+        <input id="loginPass" type="password" placeholder="Password" style="margin-top:10px" />
+        <div style="display:flex;gap:10px;margin-top:12px">
+          <button class="login-btn btn-primary" onclick="demoLogin()">Log In</button>
+          <button class="login-btn btn-ghost" onclick="alert('Forgot — demo')">Forgot?</button>
+        </div>
+        <div style="font-size:13px;color:var(--muted);margin-top:12px">New to MianFamili? <a class="link" href="#contact">Open an account</a></div>
+      </aside>
+    </section>
+
+    <section id="services">
+      <h2 style="margin-top:28px">Our Services</h2>
+      <p class="muted">Comprehensive products for individuals and businesses</p>
+      <div class="services" style="margin-top:12px">
+        <div class="service"><h4>Personal Accounts</h4><p class="muted" style="margin-top:6px">Savings, current, and fixed deposit accounts with competitive returns.</p></div>
+        <div class="service"><h4>Loans & Mortgages</h4><p class="muted" style="margin-top:6px">Home loans, personal loans, and business financing with flexible terms.</p></div>
+        <div class="service"><h4>Online & Mobile Banking</h4><p class="muted" style="margin-top:6px">Secure mobile app, instant transfers, bill payments, and e-statements.</p></div>
+      </div>
+    </section>
+
+    <section class="two-col" id="about" aria-labelledby="about-heading">
+      <div class="card">
+        <h3 id="about-heading">About MianFamili Bank Limited</h3>
+        <p class="muted">MianFamili Bank Limited is a community-focused bank providing reliable financial services. Our mission is to empower customers with accessible, secure banking backed by modern technology and friendly service.</p>
+        <ul class="muted" style="margin-left:18px">
+          <li><strong>Mission:</strong> Financial inclusion & trusted service.</li>
+          <li><strong>Vision:</strong> To be the most customer-centric bank in our region.</li>
+        </ul>
+      </div>
+
+      <div class="card" id="contact">
+        <h3>Contact Us</h3>
+        <p class="muted">Have questions or want to open an account? Send us a message.</p>
+        <form id="contactForm" onsubmit="submitContact(event)">
+          <input id="cname" type="text" placeholder="Full name" required />
+          <input id="cemail" type="email" placeholder="Email" required style="margin-top:10px" />
+          <textarea id="cmessage" rows="4" placeholder="Message" style="margin-top:10px"></textarea>
+          <div style="display:flex;gap:8px;margin-top:12px">
+            <button type="submit" class="btn btn-primary">Send</button>
+            <button type="button" class="btn btn-ghost" onclick="window.location='tel:+923000000000'">Call: +92 300 0000000</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-row" style="border-top:1px solid #eef2f6;padding-top:16px;margin-top:18px">
+        <div class="muted">© <strong>MianFamili Bank Limited</strong> — All rights reserved</div>
+        <div class="muted">Privacy · Terms · Sitemap</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    function demoLogin(){
+      const u = document.getElementById('loginUser').value.trim();
+      const p = document.getElementById('loginPass').value.trim();
+      if(!u || !p){ alert('Please enter username and password.'); return; }
+      alert('Demo login — this is a static demo page. For a real site we would connect to a backend.');
+    }
+    function submitContact(e){
+      e.preventDefault();
+      const name = document.getElementById('cname').value.trim();
+      const email = document.getElementById('cemail').value.trim();
+      if(!name || !email){ alert('Please fill name and email.'); return; }
+      alert('Thank you '+name+' — we will contact you at '+email+' (demo).');
+      document.getElementById('contactForm').reset();
+    }
+    document.getElementById('openAccount').addEventListener('click', ()=>{location.hash='#contact';document.getElementById('cname').focus();});
+    document.getElementById('openLogin').addEventListener('click', ()=>{window.scrollTo({top:0,behavior:'smooth'});document.getElementById('loginUser').focus();});
+  </script>
+</body>
+</html>
